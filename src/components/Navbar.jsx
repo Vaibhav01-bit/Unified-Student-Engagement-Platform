@@ -5,6 +5,7 @@ import {
   Landmark, FileText, Trophy, Newspaper
 } from 'lucide-react';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import storage from '../utils/storage';
 
 const navItems = [
@@ -92,17 +93,24 @@ export default function Navbar() {
           </div>
         </div>
 
-        {menuOpen && (
-          <div className="border-t border-surface-border bg-surface p-3 space-y-0.5 animate-fade-in max-h-[70vh] overflow-y-auto">
-            {navItems.map(({ path, label, icon: Icon }) => (
-              <Link key={path} to={path} onClick={() => setMenuOpen(false)}
-                className={location.pathname === path ? 'nav-link-active' : 'nav-link'}>
-                <Icon size={16} />
-                <span className="text-sm">{label}</span>
-              </Link>
-            ))}
-          </div>
-        )}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="border-t border-surface-border bg-surface p-3 space-y-0.5 max-h-[70vh] overflow-y-auto overflow-hidden"
+            >
+              {navItems.map(({ path, label, icon: Icon }) => (
+                <Link key={path} to={path} onClick={() => setMenuOpen(false)}
+                  className={location.pathname === path ? 'nav-link-active' : 'nav-link'}>
+                  <Icon size={16} />
+                  <span className="text-sm">{label}</span>
+                </Link>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
     </>
   );

@@ -3,6 +3,9 @@ import { Calculator, Landmark, TrendingUp, AlertCircle, CheckCircle } from 'luci
 import { calculateROI, calculateLoanEligibility } from '../utils/scoring';
 import storage from '../utils/storage';
 import { trackEvent } from '../utils/rewards';
+import { PageTransition } from '../components/ui/PageTransition';
+import { AnimatedCard } from '../components/ui/AnimatedCard';
+import { ButtonAnim } from '../components/ui/ButtonAnim';
 
 const courses = ['Computer Science', 'MBA', 'Data Science', 'Engineering'];
 const countries = ['Canada', 'UK', 'Australia', 'Germany', 'USA'];
@@ -67,7 +70,8 @@ export default function Finance() {
     new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <PageTransition transitionKey="finance">
+    <div className="space-y-6">
       {/* Header */}
       <div>
         <h1 className="text-2xl font-black text-white">Finance</h1>
@@ -100,7 +104,7 @@ export default function Finance() {
       {activeTab === 'roi' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Form */}
-          <div className="card space-y-5">
+          <AnimatedCard className="space-y-5">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
                 <Calculator size={20} className="text-blue-400" />
@@ -152,19 +156,20 @@ export default function Finance() {
               </div>
             </div>
 
-            <button
+            <ButtonAnim
               id="roi-calculate"
+              variant="primary"
               onClick={handleROI}
               disabled={!roiForm.course || !roiForm.country || !roiForm.cost}
-              className="btn-primary w-full disabled:opacity-50"
+              className="w-full disabled:opacity-50"
             >
               Calculate ROI
-            </button>
-          </div>
+            </ButtonAnim>
+          </AnimatedCard>
 
           {/* Result */}
           {roiResult ? (
-            <div className="card space-y-5 animate-bounce-in">
+            <AnimatedCard className="space-y-5 animate-bounce-in">
               <div className="flex items-center justify-between">
                 <h3 className="font-bold text-white">ROI Analysis</h3>
                 <VerdictBadge verdict={roiResult.verdict} color={roiResult.color} />
@@ -220,13 +225,13 @@ export default function Finance() {
                 {roiResult.verdict === 'Risky' ? <AlertCircle size={16} className="text-red-400 flex-shrink-0 mt-0.5" /> : <CheckCircle size={16} className="text-teal-400 flex-shrink-0 mt-0.5" />}
                 <p className="text-sm text-white">{roiResult.description}</p>
               </div>
-            </div>
+            </AnimatedCard>
           ) : (
-            <div className="card flex flex-col items-center justify-center text-center py-12">
+            <AnimatedCard className="flex flex-col items-center justify-center text-center py-12">
               <TrendingUp size={48} className="text-muted mb-3" />
               <p className="text-white font-semibold">Fill the form to see your ROI</p>
               <p className="text-muted text-sm mt-1">We'll calculate your salary vs cost analysis</p>
-            </div>
+            </AnimatedCard>
           )}
         </div>
       )}
@@ -235,7 +240,7 @@ export default function Finance() {
       {activeTab === 'loan' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Form */}
-          <div className="card space-y-5">
+          <AnimatedCard className="space-y-5">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 rounded-xl bg-teal/20 flex items-center justify-center">
                 <Landmark size={20} className="text-teal-400" />
@@ -304,19 +309,20 @@ export default function Finance() {
               </div>
             </div>
 
-            <button
+            <ButtonAnim
               id="loan-check"
+              variant="teal"
               onClick={handleLoan}
               disabled={!loanForm.income}
-              className="btn-teal w-full disabled:opacity-50"
+              className="w-full disabled:opacity-50"
             >
               Check Loan Eligibility
-            </button>
-          </div>
+            </ButtonAnim>
+          </AnimatedCard>
 
           {/* Result */}
           {loanResult ? (
-            <div className="card space-y-5 animate-bounce-in">
+            <AnimatedCard className="space-y-5 animate-bounce-in">
               <div className="flex items-center justify-between">
                 <h3 className="font-bold text-white">Loan Assessment</h3>
                 <span className={`badge border text-sm font-bold px-4 py-1.5 ${
@@ -375,16 +381,17 @@ export default function Finance() {
                   )}
                 </div>
               )}
-            </div>
+            </AnimatedCard>
           ) : (
-            <div className="card flex flex-col items-center justify-center text-center py-12">
+            <AnimatedCard className="flex flex-col items-center justify-center text-center py-12">
               <Landmark size={48} className="text-muted mb-3" />
               <p className="text-white font-semibold">Enter your details to check eligibility</p>
               <p className="text-muted text-sm mt-1">Get a personalized loan assessment</p>
-            </div>
+            </AnimatedCard>
           )}
         </div>
       )}
     </div>
+    </PageTransition>
   );
 }

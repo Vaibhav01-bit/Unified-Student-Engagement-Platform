@@ -1,9 +1,11 @@
+import { AnimatedCard } from './ui/AnimatedCard';
+
 export default function StreakCounter({ streak }) {
   const isHot = streak >= 3;
   const isOnFire = streak >= 7;
 
   return (
-    <div className={`card flex items-center gap-4 ${isOnFire ? 'border border-orange-500/30 bg-orange-500/5' : ''}`}>
+    <AnimatedCard hoverable={false} className={`flex items-center gap-4 ${isOnFire ? 'border border-orange-500/30 bg-orange-500/5' : ''}`}>
       <div className={`text-4xl ${isHot ? 'animate-float' : ''}`}>
         {isOnFire ? '🔥' : streak >= 3 ? '⚡' : '📅'}
       </div>
@@ -37,6 +39,6 @@ export default function StreakCounter({ streak }) {
           {streak > 7 && <p className="text-xs text-muted text-right mt-1">+{streak - 7}</p>}
         </div>
       )}
-    </div>
+    </AnimatedCard>
   );
 }

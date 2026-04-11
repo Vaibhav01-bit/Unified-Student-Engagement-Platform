@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GraduationCap, User, BookOpen, Globe, DollarSign, ChevronRight, ChevronLeft, Check } from 'lucide-react';
 import storage from '../utils/storage';
+import { PageTransition } from '../components/ui/PageTransition';
+import { ButtonAnim } from '../components/ui/ButtonAnim';
 
 const countries = ['Canada', 'UK', 'Australia', 'Germany', 'USA', 'Ireland', 'New Zealand', 'Netherlands'];
 const courses = ['Computer Science', 'MBA', 'Data Science', 'Engineering', 'Medicine', 'Law', 'Arts & Humanities', 'Business'];
@@ -69,6 +71,7 @@ export default function Onboarding() {
   };
 
   return (
+    <PageTransition transitionKey="onboarding">
     <div className="min-h-screen bg-bg flex items-center justify-center p-4">
       {/* Background decoration */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -258,33 +261,36 @@ export default function Onboarding() {
           {/* Navigation Buttons */}
           <div className="flex gap-3 mt-8">
             {step > 1 && (
-              <button onClick={handleBack} className="btn-secondary flex items-center gap-2">
+              <ButtonAnim variant="secondary" onClick={handleBack} className="flex items-center gap-2">
                 <ChevronLeft size={18} />
                 Back
-              </button>
+              </ButtonAnim>
             )}
             {step < 3 ? (
-              <button
+              <ButtonAnim
                 id="onboarding-next"
+                variant="primary"
                 onClick={handleNext}
-                className="btn-primary flex-1 flex items-center justify-center gap-2"
+                className="flex-1 flex items-center justify-center gap-2"
               >
                 Next Step
                 <ChevronRight size={18} />
-              </button>
+              </ButtonAnim>
             ) : (
-              <button
+              <ButtonAnim
                 id="onboarding-submit"
+                variant="primary"
                 onClick={handleSubmit}
-                className="btn-primary flex-1 flex items-center justify-center gap-2"
+                className="flex-1 flex items-center justify-center gap-2"
               >
                 Launch My Dashboard
                 <GraduationCap size={18} />
-              </button>
+              </ButtonAnim>
             )}
           </div>
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 }

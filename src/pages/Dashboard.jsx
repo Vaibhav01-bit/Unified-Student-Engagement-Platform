@@ -11,6 +11,8 @@ import SmartNudge from '../components/SmartNudge';
 import StreakCounter from '../components/StreakCounter';
 import ProgressBar from '../components/ProgressBar';
 import checklistData from '../data/checklist.json';
+import { PageTransition } from '../components/ui/PageTransition';
+import { AnimatedCard } from '../components/ui/AnimatedCard';
 
 const navCards = [
   { path: '/explore', title: 'Career Chatbot', description: 'AI-powered study abroad advisor', icon: Compass, emoji: '🤖', gradient: 'from-blue-600 to-indigo-700' },
@@ -57,7 +59,8 @@ export default function Dashboard() {
   const greeting = hour < 12 ? '🌅 Good morning' : hour < 17 ? '☀️ Good afternoon' : '🌙 Good evening';
 
   return (
-    <div className="space-y-7 animate-fade-in">
+    <PageTransition transitionKey="dashboard">
+    <div className="space-y-7">
       {/* Hero */}
       <div className="relative overflow-hidden card bg-gradient-to-br from-primary/30 via-surface-card to-teal/20 border-primary/30">
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
@@ -89,14 +92,14 @@ export default function Dashboard() {
           { icon: '🏦', value: `${loanScore}%`, label: 'Loan Readiness', color: 'text-teal-400', bg: 'bg-teal/10' },
           { icon: streak >= 7 ? '🔥' : streak >= 3 ? '⚡' : '📅', value: `${streak}`, label: 'Day Streak', color: 'text-orange-400', bg: 'bg-orange-500/10' },
           { icon: '🏅', value: levelInfo ? `Lvl ${levelInfo.level}` : '–', label: levelInfo?.name || 'Level', color: 'text-yellow-400', bg: 'bg-yellow-500/10' },
-        ].map(({ icon, value, label, color, bg }) => (
-          <div key={label} className="card flex items-center gap-3">
+        ].map(({ icon, value, label, color, bg }, idx) => (
+          <AnimatedCard key={label} delay={idx * 0.1} className="flex items-center gap-3">
             <div className={`w-10 h-10 rounded-xl ${bg} flex items-center justify-center text-xl flex-shrink-0`}>{icon}</div>
             <div>
               <p className={`text-xl font-bold ${color}`}>{value}</p>
               <p className="text-xs text-muted">{label}</p>
             </div>
-          </div>
+          </AnimatedCard>
         ))}
       </div>
 
@@ -157,5 +160,6 @@ export default function Dashboard() {
         />
       )}
     </div>
+    </PageTransition>
   );
 }

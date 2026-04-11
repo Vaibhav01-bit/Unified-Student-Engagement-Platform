@@ -6,6 +6,8 @@ import ChecklistItem from '../components/ChecklistItem';
 import ProgressBar from '../components/ProgressBar';
 import ReferralButton from '../components/ReferralButton';
 import checklistData from '../data/checklist.json';
+import { PageTransition } from '../components/ui/PageTransition';
+import { AnimatedCard } from '../components/ui/AnimatedCard';
 
 const COMPLETED_KEY = 'edupath_checklist_completed';
 
@@ -81,14 +83,15 @@ export default function Progress() {
   const totalCount = checklistData.length;
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <PageTransition transitionKey="progress">
+    <div className="space-y-6">
       {/* Confetti banner */}
       {showConfetti && (
-        <div className="card border border-yellow-500/40 bg-gradient-to-r from-yellow-500/20 to-orange-500/10 text-center py-6 animate-bounce-in">
+        <AnimatedCard className="border border-yellow-500/40 bg-gradient-to-r from-yellow-500/20 to-orange-500/10 text-center py-6 animate-bounce-in">
           <div className="text-5xl mb-2">🎉</div>
           <h2 className="text-xl font-black text-white">100% Complete! Congratulations!</h2>
           <p className="text-muted text-sm mt-1">You've completed your entire checklist. You're ready to apply!</p>
-        </div>
+        </AnimatedCard>
       )}
 
       {/* Header */}
@@ -100,15 +103,15 @@ export default function Progress() {
       {/* Stats Overview */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {/* Circular progress */}
-        <div className="card col-span-1 flex flex-col items-center justify-center py-6">
+        <AnimatedCard className="col-span-1 flex flex-col items-center justify-center py-6">
           <CircularProgress percentage={progress} />
           <p className="text-sm text-muted mt-3 text-center">
             {completedCount} of {totalCount} items done
           </p>
-        </div>
+        </AnimatedCard>
 
         {/* Loan score */}
-        <div className="card flex flex-col justify-between">
+        <AnimatedCard className="flex flex-col justify-between">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-xl bg-teal/20 flex items-center justify-center text-xl">🏦</div>
             <div>
@@ -122,10 +125,10 @@ export default function Progress() {
              loanScore < 100 ? 'Almost ready for loan application' :
              '✓ Ready for loan application!'}
           </p>
-        </div>
+        </AnimatedCard>
 
         {/* Achievements */}
-        <div className="card">
+        <AnimatedCard>
           <div className="flex items-center gap-3 mb-4">
             <Award size={22} className="text-yellow-400" />
             <h3 className="font-semibold text-white">Milestones</h3>
@@ -144,7 +147,7 @@ export default function Progress() {
               </div>
             ))}
           </div>
-        </div>
+        </AnimatedCard>
       </div>
 
       {/* Checklist by Category */}
@@ -153,7 +156,7 @@ export default function Progress() {
         {Object.entries(grouped).map(([category, items]) => {
           const catCompleted = items.filter((i) => completedIds.includes(i.id)).length;
           return (
-            <div key={category} className="card">
+            <AnimatedCard key={category}>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <span className="text-xl">{categoryIcons[category] || '📋'}</span>
@@ -179,23 +182,24 @@ export default function Progress() {
                   />
                 ))}
               </div>
-            </div>
+            </AnimatedCard>
           );
         })}
       </div>
 
       {/* Overall progress bar */}
-      <div className="card">
+      <AnimatedCard>
         <ProgressBar
           percentage={progress}
           label="Overall Application Progress"
           color="from-primary via-teal to-cyan-400"
           height="h-4"
         />
-      </div>
+      </AnimatedCard>
 
       {/* Referral */}
       <ReferralButton />
     </div>
+    </PageTransition>
   );
 }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { X, Bell } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { updateActivity } from '../utils/streaks';
+import { AnimatedCard } from './ui/AnimatedCard';
 
 export default function SmartNudge({ message, cta, ctaPath, onDismiss }) {
   const [visible, setVisible] = useState(true);
@@ -23,7 +24,7 @@ export default function SmartNudge({ message, cta, ctaPath, onDismiss }) {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 max-w-sm w-full animate-bounce-in">
-      <div className="card border border-primary/40 bg-gradient-to-br from-primary/20 to-surface-card shadow-xl shadow-primary/20">
+      <AnimatedCard className="border border-primary/40 bg-gradient-to-br from-primary/20 to-surface-card shadow-xl shadow-primary/20">
         <div className="flex items-start gap-3">
           <div className="w-10 h-10 rounded-xl bg-primary/30 flex items-center justify-center flex-shrink-0">
             <Bell size={20} className="text-blue-300" />
@@ -47,7 +48,7 @@ export default function SmartNudge({ message, cta, ctaPath, onDismiss }) {
             <X size={16} />
           </button>
         </div>
-      </div>
+      </AnimatedCard>
     </div>
   );
 }

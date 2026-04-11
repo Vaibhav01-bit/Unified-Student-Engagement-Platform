@@ -4,6 +4,8 @@ import { getChatResponse, createUserMessage } from '../utils/chatbot';
 import ChatMessage from '../components/ChatMessage';
 import UniversityCard from '../components/UniversityCard';
 import storage from '../utils/storage';
+import { PageTransition } from '../components/ui/PageTransition';
+import { AnimatedCard } from '../components/ui/AnimatedCard';
 import universitiesData from '../data/universities.json';
 import { trackEvent } from '../utils/rewards';
 
@@ -101,7 +103,8 @@ export default function Explore() {
   };
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <PageTransition transitionKey="explore">
+    <div className="space-y-6">
       {/* Header */}
       <div>
         <h1 className="text-2xl font-black text-white">Explore</h1>
@@ -136,7 +139,7 @@ export default function Explore() {
 
       {/* Chatbot Tab */}
       {activeTab === 'chatbot' && (
-        <div className="card p-0 overflow-hidden flex flex-col" style={{ height: '600px' }}>
+        <AnimatedCard className="p-0 overflow-hidden flex flex-col h-[600px]">
           {/* Chat Header */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-surface-border bg-surface">
             <div className="flex items-center gap-3">
@@ -202,14 +205,14 @@ export default function Explore() {
               </button>
             </div>
           </div>
-        </div>
+        </AnimatedCard>
       )}
 
       {/* Universities Tab */}
       {activeTab === 'universities' && (
         <div className="space-y-5">
           {/* Filters */}
-          <div className="card space-y-4">
+          <AnimatedCard className="space-y-4">
             <div className="flex items-center gap-2 mb-2">
               <SlidersHorizontal size={18} className="text-primary" />
               <h3 className="font-semibold text-white">Filters</h3>
@@ -252,7 +255,7 @@ export default function Explore() {
                 </select>
               </div>
             </div>
-          </div>
+          </AnimatedCard>
 
           {/* University Cards */}
           {filteredUniversities.length === 0 ? (
@@ -271,5 +274,6 @@ export default function Explore() {
         </div>
       )}
     </div>
+    </PageTransition>
   );
 }
