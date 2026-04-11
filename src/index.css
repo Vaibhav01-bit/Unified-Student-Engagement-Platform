@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-white font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface-card rounded-2xl border border-surface-border p-6 transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply card hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-light text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-primary/30 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-surface-card border border-surface-border hover:border-primary/50 text-white font-medium px-6 py-3 rounded-xl transition-all duration-200;
+  }
+
+  .btn-teal {
+    @apply bg-teal hover:bg-teal-light text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-teal/30 active:scale-95;
+  }
+
+  .input-field {
+    @apply w-full bg-surface border border-surface-border text-white placeholder-muted rounded-xl px-4 py-3 outline-none focus:border-primary/70 focus:ring-2 focus:ring-primary/20 transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-muted mb-2;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent;
+  }
+
+  .glass {
+    background: rgba(26, 31, 46, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(46, 53, 72, 0.5);
+  }
+
+  .progress-ring {
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-muted hover:text-white hover:bg-surface-card transition-all duration-200 font-medium;
+  }
+
+  .nav-link-active {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-white bg-primary/20 border border-primary/30 font-medium;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(29, 78, 143, 0.4);
+  }
+
+  .glow-teal {
+    box-shadow: 0 0 20px rgba(15, 110, 86, 0.4);
+  }
+
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+}
+
+/* Custom animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes progressFill {
+  from { stroke-dashoffset: 440; }
+  to { stroke-dashoffset: var(--target-offset); }
+}
+
+.animate-float {
+  animation: floatUp 4s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+.shimmer-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+/* Progress bar animation */
+.progress-bar-fill {
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Chat message animations */
+.chat-message-bot {
+  animation: slideIn 0.3s ease-out;
+}
+
+.chat-message-user {
+  animation: slideUp 0.2s ease-out;
+}
+
+/* Checklist item hover */
+.checklist-item:hover {
+  @apply bg-surface/50;
+}
+
+/* Tooltip */
+.tooltip {
+  @apply absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-surface-card border border-surface-border text-xs rounded-lg whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-200;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply opacity-100;
+}

@@ -1,0 +1,22 @@
+[
+  { "course": "Computer Science", "country": "Canada", "avgSalaryUSD": 95000, "currency": "CAD", "localSalary": 120000 },
+  { "course": "Computer Science", "country": "UK", "avgSalaryUSD": 82000, "currency": "GBP", "localSalary": 65000 },
+  { "course": "Computer Science", "country": "Australia", "avgSalaryUSD": 88000, "currency": "AUD", "localSalary": 130000 },
+  { "course": "Computer Science", "country": "Germany", "avgSalaryUSD": 70000, "currency": "EUR", "localSalary": 65000 },
+  { "course": "Computer Science", "country": "USA", "avgSalaryUSD": 130000, "currency": "USD", "localSalary": 130000 },
+  { "course": "MBA", "country": "Canada", "avgSalaryUSD": 90000, "currency": "CAD", "localSalary": 115000 },
+  { "course": "MBA", "country": "UK", "avgSalaryUSD": 100000, "currency": "GBP", "localSalary": 80000 },
+  { "course": "MBA", "country": "Australia", "avgSalaryUSD": 95000, "currency": "AUD", "localSalary": 140000 },
+  { "course": "MBA", "country": "Germany", "avgSalaryUSD": 75000, "currency": "EUR", "localSalary": 70000 },
+  { "course": "MBA", "country": "USA", "avgSalaryUSD": 145000, "currency": "USD", "localSalary": 145000 },
+  { "course": "Data Science", "country": "Canada", "avgSalaryUSD": 92000, "currency": "CAD", "localSalary": 118000 },
+  { "course": "Data Science", "country": "UK", "avgSalaryUSD": 78000, "currency": "GBP", "localSalary": 62000 },
+  { "course": "Data Science", "country": "Australia", "avgSalaryUSD": 85000, "currency": "AUD", "localSalary": 125000 },
+  { "course": "Data Science", "country": "Germany", "avgSalaryUSD": 68000, "currency": "EUR", "localSalary": 63000 },
+  { "course": "Data Science", "country": "USA", "avgSalaryUSD": 125000, "currency": "USD", "localSalary": 125000 },
+  { "course": "Engineering", "country": "Canada", "avgSalaryUSD": 85000, "currency": "CAD", "localSalary": 108000 },
+  { "course": "Engineering", "country": "UK", "avgSalaryUSD": 72000, "currency": "GBP", "localSalary": 57000 },
+  { "course": "Engineering", "country": "Australia", "avgSalaryUSD": 82000, "currency": "AUD", "localSalary": 120000 },
+  { "course": "Engineering", "country": "Germany", "avgSalaryUSD": 65000, "currency": "EUR", "localSalary": 60000 },
+  { "course": "Engineering", "country": "USA", "avgSalaryUSD": 115000, "currency": "USD", "localSalary": 115000 }
+]

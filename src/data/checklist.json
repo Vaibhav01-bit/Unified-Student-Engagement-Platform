@@ -1,0 +1,16 @@
+[
+  { "id": "passport", "label": "Valid Passport", "category": "Documents", "required": true, "icon": "passport" },
+  { "id": "offer_letter", "label": "University Offer Letter", "category": "Documents", "required": true, "icon": "file-text" },
+  { "id": "income_proof", "label": "Income Proof (Family)", "category": "Finance", "required": true, "icon": "banknote" },
+  { "id": "bank_statement", "label": "Bank Statement (6 months)", "category": "Finance", "required": true, "icon": "landmark" },
+  { "id": "loan_approval", "label": "Education Loan Approval", "category": "Finance", "required": false, "icon": "credit-card" },
+  { "id": "sop", "label": "Statement of Purpose (SOP)", "category": "Academic", "required": true, "icon": "pen-line" },
+  { "id": "lor", "label": "Letters of Recommendation (LOR)", "category": "Academic", "required": true, "icon": "mail" },
+  { "id": "transcripts", "label": "Official Transcripts", "category": "Academic", "required": true, "icon": "scroll" },
+  { "id": "ielts", "label": "IELTS / TOEFL Score Report", "category": "Academic", "required": true, "icon": "languages" },
+  { "id": "gre_gmat", "label": "GRE / GMAT Score (if required)", "category": "Academic", "required": false, "icon": "brain" },
+  { "id": "visa_application", "label": "Student Visa Application", "category": "Visa", "required": true, "icon": "globe" },
+  { "id": "health_insurance", "label": "Health Insurance", "category": "Visa", "required": true, "icon": "heart-pulse" },
+  { "id": "accommodation", "label": "Accommodation Booked", "category": "Travel", "required": false, "icon": "home" },
+  { "id": "flight", "label": "Flight Tickets Booked", "category": "Travel", "required": false, "icon": "plane" }
+]

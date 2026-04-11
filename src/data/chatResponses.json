@@ -1,0 +1,89 @@
+{
+  "keywords": {
+    "canada": {
+      "response": "🇨🇦 **Canada is a top destination!** Here's what you need to know:\n\n- **Express Entry** for permanent residency after graduation\n- **PGWP** lets you work for up to 3 years post-study\n- Top universities: UofT, McGill, UBC, Waterloo\n- Average tuition: CAD 20,000–35,000/year\n- **DLI schools** give work authorization during studies\n\nWould you like info about specific programs in Canada?",
+      "suggestions": ["Canada visa process", "PGWP eligibility", "Top CS programs Canada"]
+    },
+    "uk": {
+      "response": "🇬🇧 **The UK offers world-class education!** Key facts:\n\n- Most Masters programs are **just 1 year** — cost-effective!\n- **Graduate Route Visa** = 2 years post-study work\n- Top choices: Imperial, Edinburgh, Manchester, UCL\n- Average tuition: GBP 15,000–30,000/year\n- IELTS minimum: 6.5 for most programs\n\nWhat subject are you interested in studying in the UK?",
+      "suggestions": ["UK student visa", "1-year masters UK", "UK scholarships"]
+    },
+    "britain": {
+      "response": "🇬🇧 **The UK offers world-class education!** Key facts:\n\n- Most Masters programs are **just 1 year** — cost-effective!\n- **Graduate Route Visa** = 2 years post-study work\n- Top choices: Imperial, Edinburgh, Manchester, UCL\n- Average tuition: GBP 15,000–30,000/year\n- IELTS minimum: 6.5 for most programs",
+      "suggestions": ["UK student visa", "1-year masters UK", "UK scholarships"]
+    },
+    "australia": {
+      "response": "🇦🇺 **Australia is a great choice!** Here's the overview:\n\n- **Post-Study Work Stream** visa: 2–4 years\n- Strong job market in tech, healthcare, and finance\n- Top unis: Melbourne, ANU, Sydney, Monash\n- Average tuition: AUD 28,000–45,000/year\n- QS Top 100 universities are widely recognized\n\nAustralia has excellent ROI for international students!",
+      "suggestions": ["Australia visa requirements", "TSS visa", "Cost of living Australia"]
+    },
+    "germany": {
+      "response": "🇩🇪 **Germany = Affordable Excellence!** Key highlights:\n\n- **Tuition-FREE** at most public universities\n- Required: blocked account of ~€11,208\n- Programs increasingly available in **English**\n- Top unis: TU Munich, RWTH Aachen, Heidelberg\n- Post-study: 18-month job seeker visa\n\nGermany is one of the best ROI destinations for engineering and tech!",
+      "suggestions": ["Germany blocked account", "Student visa Germany", "English programs Germany"]
+    },
+    "usa": {
+      "response": "🇺🇸 **The USA has the world's best universities!** Overview:\n\n- Highest average salaries post-graduation\n- OPT: 1 year work authorization (3 years for STEM)\n- Top programs: MIT, Stanford, CMU, Berkeley\n- Tuition: USD 30,000–70,000/year\n- Competitive but very high ROI for CS and MBA\n\nUSA requires strong GRE/GMAT scores. Plan 6–12 months ahead.",
+      "suggestions": ["OPT STEM extension", "F-1 visa requirements", "GRE preparation"]
+    },
+    "mba": {
+      "response": "💼 **MBA Programs — Business School Guide:**\n\n**Top Destinations:**\n- 🇺🇸 USA: Harvard, Wharton, Booth, Stern (avg salary: $145k)\n- 🇬🇧 UK: LBS, Said, Judge, Warwick (avg: £80k)\n- 🇨🇦 Canada: Rotman, Ivey, Schulich (avg: CAD 95k)\n\n**Requirements:**\n- GMAT: 650+ (700+ for top 20)\n- Experience: 3–5 years preferred\n- Strong SOP + leadership examples\n\n**ROI:** MBA typically breaks even in 3–5 years!",
+      "suggestions": ["GMAT preparation", "MBA scholarships", "MBA vs MS"]
+    },
+    "engineering": {
+      "response": "⚙️ **Engineering Masters Programs:**\n\n**Best Countries:**\n- 🇩🇪 Germany: Free tuition, top engineering schools\n- 🇺🇸 USA: Highest salaries, OPT opportunities\n- 🇨🇦 Canada: Strong job market + PGWP\n\n**Specializations in demand:**\n- Mechanical Engineering, Civil, Electrical\n- Software Engineering, AI/ML Engineering\n- Aerospace, Chemical Engineering\n\n**GRE is often required** for US programs. Target 315+.",
+      "suggestions": ["GRE engineering prep", "Germany engineering programs", "Engineering salaries"]
+    },
+    "computer science": {
+      "response": "💻 **Computer Science Masters — Hot Field!**\n\n**Top Programs:**\n- Carnegie Mellon MSCS (USA)\n- UofT MScAC (Canada)\n- Imperial MSc CS (UK)\n- TU Munich Informatics (Germany)\n\n**Average First-Year Salaries:**\n- USA: $120,000–$180,000\n- Canada: CAD $90,000–$120,000\n- UK: £45,000–£65,000\n- Germany: €55,000–€75,000\n\n**GRE scores**: Aim for 165+ Quant section!",
+      "suggestions": ["CS GRE prep", "Portfolio for CS admits", "FAANG jobs after MS"]
+    },
+    "data science": {
+      "response": "📊 **Data Science is one of the hottest fields!**\n\n**Top Programs:**\n- UC Berkeley MIDS (USA)\n- Carnegie Mellon MSML (USA)\n- UBC MDS (Canada)\n- Edinburgh MSc DS (UK)\n\n**Skills that matter:**\n- Python, SQL, Machine Learning\n- TensorFlow/PyTorch experience\n- Kaggle competitions help on resume\n\n**Average Salary:** $85,000–$130,000 (USA)\n\nHave a GitHub portfolio ready!",
+      "suggestions": ["Data science portfolio", "Kaggle tips", "Python for DS"]
+    },
+    "loan": {
+      "response": "🏦 **Education Loan Guide for India Students:**\n\n**Government Schemes:**\n- Vidya Lakshmi Portal: loans up to ₹1.5 crore\n- SBI Scholar Loan: up to ₹40L for top global unis\n- HDFC Credila: up to ₹75L, quick processing\n\n**Key Documents:**\n- Admission offer letter\n- Income proof of co-applicant\n- Bank statements (last 6 months)\n- Collateral docs (if applicable)\n\n**Tip:** Apply 3–4 months before travel. Use our Loan Eligibility Engine for personalized estimates!",
+      "suggestions": ["Loan documents checklist", "Education loan interest rates", "Loan subsidy schemes"]
+    },
+    "scholarship": {
+      "response": "🎓 **Scholarships for International Students:**\n\n**Country-Specific:**\n- 🇨🇦 Vanier Canada Graduate Scholarships\n- 🇬🇧 Chevening Scholarships (fully funded)\n- 🇦🇺 Australia Awards Scholarships\n- 🇩🇪 DAAD Scholarships (Germany)\n\n**University Grants:**\n- Most top universities offer merit-based aid\n- Mention in your SOP that you're seeking funding\n\n**Deadlines:** Usually 6–12 months before intake. Apply early!",
+      "suggestions": ["Chevening application tips", "DAAD scholarship", "How to find scholarships"]
+    },
+    "visa": {
+      "response": "📋 **Student Visa Guide:**\n\n**Canada (Study Permit):**\n- Timeline: 8–12 weeks\n- Need: Acceptance letter, funds proof, biometrics\n\n**UK (Student Visa):**\n- Timeline: 3–4 weeks after CAS\n- Need: CAS number, ATAS if applicable\n\n**Australia (Subclass 500):**\n- Timeline: 4–6 weeks\n- Need: CoE + OSHC + GTE statement\n\n**Germany (National Visa):**\n- Timeline: 8–12 weeks\n- Need: Blocked account + enrollment proof\n\n**Start early — visa delays are common!**",
+      "suggestions": ["Visa documents list", "Biometrics appointment", "Visa rejection reasons"]
+    },
+    "ielts": {
+      "response": "🗣️ **IELTS Preparation Strategy:**\n\n**Common Requirements:**\n- Most universities: Overall 6.5 (no band below 6.0)\n- Top universities: 7.0+ overall\n\n**Preparation Plan (12 weeks):**\n- Weeks 1–4: Grammar + Vocabulary\n- Weeks 5–8: Practice all 4 modules daily\n- Weeks 9–12: Full mock tests + review\n\n**Free Resources:**\n- British Council Free Practice Tests\n- Road to IELTS (free through many libraries)\n- Cambridge IELTS books (1–18)\n\n**Alternatives:** TOEFL, PTE, Duolingo (check university policy)",
+      "suggestions": ["IELTS preparation books", "PTE vs IELTS", "TOEFL tips"]
+    },
+    "toefl": {
+      "response": "🗣️ **TOEFL iBT Preparation Guide:**\n\n**Score Targets:**\n- Most universities: 90+ total\n- Top universities: 100+ total\n\n**Format:** Reading, Listening, Speaking, Writing\n\n**Preparation Resources:**\n- Official TOEFL prep on ETS website\n- Magoosh TOEFL (paid but comprehensive)\n- Practice speaking with native speakers online\n\n**TOEFL vs IELTS:** TOEFL is more accepted in the USA; IELTS preferred in UK/Canada/Australia",
+      "suggestions": ["TOEFL practice tests", "IELTS vs TOEFL comparison", "English test tips"]
+    },
+    "fees": {
+      "response": "💰 **Course Fees Comparison:**\n\n| Country | Avg Annual Fees (USD) |\n|---------|---------------------|\n| Germany | $2,000–$5,000 |\n| Canada | $20,000–$35,000 |\n| Australia | $25,000–$40,000 |\n| UK | $20,000–$50,000 |\n| USA | $30,000–$70,000 |\n\n**Budget Tips:**\n- Consider part-time work (20h/week allowed in most countries)\n- Apply for university grants early\n- Check for scholarships before committing\n\nUse our **ROI Calculator** to see if the investment pays off!",
+      "suggestions": ["University cost comparison", "Living expenses abroad", "Part-time jobs for students"]
+    },
+    "gre": {
+      "response": "📝 **GRE Preparation Guide:**\n\n**Score Targets:**\n- 310+ for most programs\n- 320+ for top 50 programs\n- 165+ Quant for CS/Engineering\n\n**Study Timeline:**\n- 3 months minimum, 6 months ideal\n- 2 hours daily study recommended\n\n**Free Resources:**\n- Official GRE Prep from ETS (2 free tests)\n- Khan Academy for Quant concepts\n- Magoosh GRE Vocabulary app\n\n**Books:** Manhattan Prep GRE 5-lb Book, Barron's",
+      "suggestions": ["GRE 320+ strategy", "GRE vs GMAT", "GRE free practice tests"]
+    },
+    "gmat": {
+      "response": "📝 **GMAT Focus Edition — Updated 2023:**\n\n**Score Targets:**\n- 600+ for most MBA programs\n- 650+ for top 50 programs\n- 700+ for M7 schools\n\n**New GMAT Focus:**\n- No Integrated Reasoning (separate section)\n- Shorter: 2 hours 15 minutes vs 3.5 hours\n- More adaptive — harder questions = better score\n\n**Study Resources:**\n- Official GMAT Prep (Manhattan, Veritas)\n- Target Analytics by GMAC\n- 6-month study plan for 700+",
+      "suggestions": ["GMAT 700 study plan", "GMAT vs GRE for MBA", "GMAT free resources"]
+    },
+    "sop": {
+      "response": "✍️ **How to Write a Winning SOP:**\n\n**Structure (3-4 pages):**\n1. **Hook** — Start with a compelling story or insight\n2. **Why this field** — Your academic/professional journey\n3. **Why this program** — Specific professors, research, curriculum\n4. **Why this university** — Unique aspects that attract you\n5. **Goals** — Short-term (2-5 years) and long-term vision\n6. **Conclusion** — Tie back to your opening theme\n\n**Key Tips:**\n- Mention specific faculty by name\n- Avoid generic statements\n- Show, don't tell\n- Quantify achievements: '15% revenue increase' beats 'improved sales'",
+      "suggestions": ["SOP examples", "SOP review services", "Common SOP mistakes"]
+    },
+    "hello": {
+      "response": "👋 **Welcome to EduPath Career Navigator!**\n\nI'm your AI study abroad assistant. I can help you with:\n\n- 🌍 **Country Selection** — Canada, UK, Australia, Germany, USA\n- 📚 **Program Advice** — MBA, CS, Data Science, Engineering\n- 📋 **Application Tips** — SOP, LOR, GRE, IELTS\n- 💰 **Finance Guidance** — Loans, Scholarships, ROI\n- 🛂 **Visa Information** — Requirements & timelines\n\nWhat would you like to explore today?",
+      "suggestions": ["Tell me about Canada", "MBA programs", "IELTS preparation"]
+    },
+    "hi": {
+      "response": "👋 **Hi there! I'm your EduPath Career Navigator!**\n\nAsk me anything about studying abroad — countries, programs, visa, scholarships, loans, and more!\n\nWhat's your top destination country?",
+      "suggestions": ["Canada options", "UK programs", "Germany for free education"]
+    }
+  },
+  "default": "🤔 **Great question!** I'm still learning about that specific topic.\n\nHere's what I *can* help you with:\n- **Countries**: Canada, UK, Australia, Germany, USA\n- **Programs**: MBA, Computer Science, Data Science, Engineering\n- **Tests**: IELTS, TOEFL, GRE, GMAT\n- **Processes**: Visa, Loans, Scholarships, SOP\n\nTry asking something like: *\"Tell me about studying in Canada\"* or *\"How do I prepare for IELTS?\"*"
+}
