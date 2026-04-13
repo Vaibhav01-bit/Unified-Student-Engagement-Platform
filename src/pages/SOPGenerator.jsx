@@ -133,10 +133,10 @@ export default function SOPGenerator() {
       {/* Header */}
       <section className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="space-y-2">
-          <motion.div 
-             initial={{ opacity: 0, x: -20 }}
-             animate={{ opacity: 1, x: 0 }}
-             className="flex items-center gap-2 px-3 py-1 bg-gray-100 border border-gray-200 rounded-full w-fit"
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-2 px-3 py-1 bg-gray-100 border border-gray-200 rounded-full w-fit"
           >
             <BrainCircuit size={14} className="text-yellow-500" />
             <span className="text-[10px] font-black uppercase tracking-widest text-yellow-700">Generative Narrative Engine</span>
@@ -164,9 +164,9 @@ export default function SOPGenerator() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Objective Degree</label>
-                  <select 
+                  <select
                     className="w-full bg-gray-50 border border-gray-200 rounded-2xl px-4 py-3.5 text-gray-900 font-bold focus:outline-none focus:border-primary/50 text-sm transition-all appearance-none"
-                    value={form.course} 
+                    value={form.course}
                     onChange={(e) => setForm({ ...form, course: e.target.value })}
                   >
                     <option value="" className="bg-white">Select Course</option>
@@ -175,9 +175,9 @@ export default function SOPGenerator() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Target Institution</label>
-                  <select 
+                  <select
                     className="w-full bg-gray-50 border border-gray-200 rounded-2xl px-4 py-3.5 text-gray-900 font-bold focus:outline-none focus:border-primary/50 text-sm transition-all appearance-none"
-                    value={form.university} 
+                    value={form.university}
                     onChange={(e) => setForm({ ...form, university: e.target.value })}
                   >
                     <option value="" className="bg-white">Select Uni</option>
@@ -225,22 +225,22 @@ export default function SOPGenerator() {
 
           {/* Guidelines */}
           <GlassCard className="p-6 border-teal-200 bg-teal-50" hoverable={false}>
-             <div className="flex items-center gap-3 mb-4">
-               <Target size={18} className="text-teal-500" />
-               <h3 className="text-[10px] font-black uppercase tracking-widest text-teal-600">Optimization Guidelines</h3>
-             </div>
-             <ul className="space-y-3">
-                {[
-                  'Quantify achievements (e.g., 35% efficiency boost)',
-                  'Reference specific institutional faculty names',
-                  'Maintain 800-1000 word structural integrity',
-                  'Align narrative with target industry benchmarks'
-                ].map((tip, i) => (
-                  <li key={i} className="flex items-start gap-2 text-[10px] font-bold text-gray-500 leading-tight">
-                    <span className="text-teal-500 mt-0.5">✓</span> {tip}
-                  </li>
-                ))}
-             </ul>
+            <div className="flex items-center gap-3 mb-4">
+              <Target size={18} className="text-teal-500" />
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-teal-600">Optimization Guidelines</h3>
+            </div>
+            <ul className="space-y-3">
+              {[
+                'Quantify achievements (e.g., 35% efficiency boost)',
+                'Reference specific institutional faculty names',
+                'Maintain 800-1000 word structural integrity',
+                'Align narrative with target industry benchmarks'
+              ].map((tip, i) => (
+                <li key={i} className="flex items-start gap-2 text-[10px] font-bold text-gray-500 leading-tight">
+                  <span className="text-teal-500 mt-0.5">✓</span> {tip}
+                </li>
+              ))}
+            </ul>
           </GlassCard>
         </div>
 
@@ -287,10 +287,10 @@ export default function SOPGenerator() {
                   </div>
                   <div className="flex gap-3">
                     <Button variant="secondary" size="sm" onClick={() => setGenerated(null)} className="h-10 px-6 border-gray-200 bg-gray-50 font-black uppercase text-[10px] tracking-widest">
-                       Reset
+                      Reset
                     </Button>
                     <Button glow size="sm" onClick={handleCopy} className={cn("h-10 px-8 font-black uppercase text-[10px] tracking-widest transition-all", copied && "bg-teal-500 shadow-teal-500/50")}>
-                       {copied ? "Copied" : "Copy All"}
+                      {copied ? "Copied" : "Copy All"}
                     </Button>
                   </div>
                 </div>
@@ -299,8 +299,8 @@ export default function SOPGenerator() {
                   {generated.sections.map((section) => {
                     const isExp = expandedSection === section.id;
                     return (
-                      <GlassCard 
-                        key={section.id} 
+                      <GlassCard
+                        key={section.id}
                         className={cn(
                           "p-6 transition-all duration-500 cursor-pointer overflow-hidden",
                           isExp ? "border-primary/30 bg-primary/5" : "hover:border-gray-200"
@@ -343,29 +343,29 @@ export default function SOPGenerator() {
               </motion.div>
             ) : (
               <GlassCard className="h-full min-h-[600px] flex flex-col items-center justify-center text-center p-12 border-gray-200 group" hoverable={false}>
-                 <div className="relative mb-10">
-                    <div className="w-24 h-24 rounded-[30%] bg-gray-100 border border-gray-200 flex items-center justify-center text-5xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 group-hover:bg-primary/5 group-hover:border-primary/20 group-hover:text-primary">
-                      ✍️
+                <div className="relative mb-10">
+                  <div className="w-24 h-24 rounded-[30%] bg-gray-100 border border-gray-200 flex items-center justify-center text-5xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 group-hover:bg-primary/5 group-hover:border-primary/20 group-hover:text-primary">
+                    ✍️
+                  </div>
+                  <div className="absolute -inset-4 border border-gray-100 rounded-[35%] group-hover:border-primary/10 transition-colors" />
+                </div>
+                <h3 className="text-2xl font-black text-gray-900 uppercase tracking-tight">Awaiting Parameters</h3>
+                <p className="text-gray-500 text-sm mt-4 max-w-sm font-medium leading-relaxed">
+                  Enter your profile telemetry on the left to initiate the high-spec AI narrative synthesis.
+                </p>
+                <div className="mt-10 grid grid-cols-2 gap-4 w-full max-w-sm">
+                  {[
+                    { icon: Sparkles, label: 'AI Tailored' },
+                    { icon: Clock, label: 'Instant Draft' },
+                    { icon: Target, label: 'Course Aligned' },
+                    { icon: Check, label: 'Verified Format' }
+                  ].map((feat, i) => (
+                    <div key={i} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500 bg-gray-50 p-3 rounded-xl border border-gray-200 group-hover:border-gray-300 transition-colors">
+                      <feat.icon size={12} className="text-primary" />
+                      {feat.label}
                     </div>
-                    <div className="absolute -inset-4 border border-gray-100 rounded-[35%] group-hover:border-primary/10 transition-colors" />
-                 </div>
-                 <h3 className="text-2xl font-black text-gray-900 uppercase tracking-tight">Awaiting Parameters</h3>
-                 <p className="text-gray-500 text-sm mt-4 max-w-sm font-medium leading-relaxed">
-                   Enter your profile telemetry on the left to initiate the high-spec AI narrative synthesis.
-                 </p>
-                 <div className="mt-10 grid grid-cols-2 gap-4 w-full max-w-sm">
-                    {[
-                      { icon: Sparkles, label: 'AI Tailored' },
-                      { icon: Clock, label: 'Instant Draft' },
-                      { icon: Target, label: 'Course Aligned' },
-                      { icon: Check, label: 'Verified Format' }
-                    ].map((feat, i) => (
-                      <div key={i} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500 bg-gray-50 p-3 rounded-xl border border-gray-200 group-hover:border-gray-300 transition-colors">
-                        <feat.icon size={12} className="text-primary" />
-                        {feat.label}
-                      </div>
-                    ))}
-                 </div>
+                  ))}
+                </div>
               </GlassCard>
             )}
           </AnimatePresence>
