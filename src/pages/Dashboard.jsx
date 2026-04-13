@@ -206,45 +206,39 @@ export default function Dashboard() {
           </div>
         </section>
 
-<<<<<<< HEAD
-  {/* Engagement Footers */ }
-  <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-4">
-    <StreakCounter streak={streak} />
-    <DailyTip />
-  </section>
+        {/* Engagement Footers */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-4">
+          <StreakCounter streak={streak} />
+          <DailyTip />
+        </section>
 
-  {
-    showNudge && (
-      <SmartNudge
-        message="System Alert: Your document pipeline is currently idle. Several critical nodes require your intervention."
-        cta="Resolve Progress"
-        ctaPath="/progress"
-        onDismiss={() => setShowNudge(false)}
-      />
-    )
-  }
-=======
-      {/* Navigation Cards */}
-      <div>
-        <h2 className="text-lg font-bold text-white mb-4">All Features</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          {navCards.map(({ path, title, description, gradient, emoji }) => (
-            <Link key={path} to={path} id={`nav-card-${title.toLowerCase().replace(/\s/g, '-')}`}
-              className="card-hover group relative overflow-hidden">
-              <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-              <div className="relative">
+        {showNudge && (
+          <SmartNudge
+            message="System Alert: Your document pipeline is currently idle. Several critical nodes require your intervention."
+            cta="Resolve Progress"
+            ctaPath="/progress"
+            onDismiss={() => setShowNudge(false)}
+          />
+        )}
+
+        {/* Navigation Cards */}
+        <div>
+          <h2 className="text-lg font-bold text-gray-900 mb-4">All Features</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {navCards.map(({ path, title, description, emoji }) => (
+              <Link key={path} to={path} id={`nav-card-${title.toLowerCase().replace(/\s/g, '-')}`}
+                className="card p-4 rounded-xl border border-gray-200 hover:border-teal-500 transition-colors">
                 <div className="text-2xl mb-2">{emoji}</div>
-                <h3 className="text-sm font-bold text-white group-hover:text-blue-300 transition-colors mb-1">{title}</h3>
-                <p className="text-xs text-muted">{description}</p>
-                <div className="mt-3 flex items-center gap-1 text-primary text-xs font-medium group-hover:gap-2 transition-all">
+                <h3 className="text-sm font-bold text-gray-900 group-hover:text-teal-500 transition-colors mb-1">{title}</h3>
+                <p className="text-xs text-gray-500">{description}</p>
+                <div className="mt-3 flex items-center gap-1 text-teal-500 text-xs font-medium group-hover:gap-2 transition-all">
                   Explore <ArrowRight size={12} />
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
->>>>>>> 4c73b5a (Edit Code)
-      </div >
-    </PageTransition >
+      </div>
+    </PageTransition>
   );
 }

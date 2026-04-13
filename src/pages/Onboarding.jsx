@@ -181,8 +181,8 @@ export default function Onboarding() {
             ))}
           </div>
 
-          {/* Form Content */ }
-              < GlassCard className = "p-0 overflow-hidden border-gray-200 shadow-3xl min-h-[420px] flex flex-col" hoverable = { false} >
+          {/* Form Content */}
+          <GlassCard className="p-0 overflow-hidden border-gray-200 shadow-3xl min-h-[420px] flex flex-col" hoverable={false}>
               <div className="p-8 flex-1">
                 <AnimatePresence mode="wait" custom={direction}>
                   <motion.div
@@ -356,8 +356,8 @@ export default function Onboarding() {
                 </AnimatePresence>
               </div>
 
-            {/* Footer Navigation */ }
-              < div className = "p-6 bg-gray-100 border-t border-gray-100 flex gap-4" >
+            {/* Footer Navigation */}
+            <div className="p-6 bg-gray-100 border-t border-gray-100 flex gap-4">
               { step > 1 && (
                 <Button variant="secondary" onClick={handleBack} className="flex-1">
                   <ChevronLeft size={18} />
@@ -383,188 +383,9 @@ export default function Onboarding() {
               </Button>
             )}
           </div>
-<<<<<<< HEAD
-          </GlassCard >
-=======
-          ))}
+          </GlassCard>
         </div>
-
-        {/* Form Card */}
-        <div className="card animate-slide-up">
-          {/* Step 1: Personal Info */}
-          {step === 1 && (
-            <div className="space-y-5">
-              <div>
-                <h2 className="text-xl font-bold text-white mb-1">Tell us about yourself</h2>
-                <p className="text-muted text-sm">We'll personalize your experience</p>
-              </div>
-
-              <div>
-                <label className="label">Full Name *</label>
-                <input
-                  id="onboarding-name"
-                  type="text"
-                  className="input-field"
-                  placeholder="e.g. Priya Sharma"
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                />
-                {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
-              </div>
-
-              <div>
-                <label className="label">Current Qualification *</label>
-                <select
-                  id="onboarding-qualification"
-                  className="input-field"
-                  value={form.qualification}
-                  onChange={(e) => setForm({ ...form, qualification: e.target.value })}
-                >
-                  <option value="">Select qualification</option>
-                  {qualifications.map((q) => (
-                    <option key={q} value={q}>{q}</option>
-                  ))}
-                </select>
-                {errors.qualification && <p className="text-red-400 text-xs mt-1">{errors.qualification}</p>}
-              </div>
-            </div>
-          )}
-
-          {/* Step 2: Study Goals */}
-          {step === 2 && (
-            <div className="space-y-5">
-              <div>
-                <h2 className="text-xl font-bold text-white mb-1">Your Study Goals</h2>
-                <p className="text-muted text-sm">Help us find the best universities for you</p>
-              </div>
-
-              <div>
-                <label className="label">Target Course *</label>
-                <select
-                  id="onboarding-course"
-                  className="input-field"
-                  value={form.targetCourse}
-                  onChange={(e) => setForm({ ...form, targetCourse: e.target.value })}
-                >
-                  <option value="">Select a course</option>
-                  {courses.map((c) => (
-                    <option key={c} value={c}>{c}</option>
-                  ))}
-                </select>
-                {errors.targetCourse && <p className="text-red-400 text-xs mt-1">{errors.targetCourse}</p>}
-              </div>
-
-              <div>
-                <label className="label">Preferred Countries * <span className="text-muted font-normal">(select all that apply)</span></label>
-                <div className="grid grid-cols-2 gap-2">
-                  {countries.map((country) => {
-                    const selected = form.preferredCountries.includes(country);
-                    return (
-                      <button
-                        key={country}
-                        type="button"
-                        id={`country-${country.toLowerCase().replace(' ', '-')}`}
-                        onClick={() => toggleCountry(country)}
-                        className={`px-3 py-2 rounded-xl text-sm font-medium text-left transition-all duration-200 border ${selected
-                            ? 'bg-primary/20 border-primary/50 text-white'
-                            : 'bg-surface border-surface-border text-muted hover:border-primary/30 hover:text-white'
-                          }`}
-                      >
-                        {selected ? '✓ ' : ''}{country}
-                      </button>
-                    );
-                  })}
-                </div>
-                {errors.preferredCountries && <p className="text-red-400 text-xs mt-1">{errors.preferredCountries}</p>}
-              </div>
-
-              <div>
-                <label className="label">Annual Budget (USD) *</label>
-                <select
-                  id="onboarding-budget"
-                  className="input-field"
-                  value={form.budget}
-                  onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                >
-                  <option value="">Select budget range</option>
-                  <option value="under-15k">Under $15,000</option>
-                  <option value="15k-30k">$15,000 – $30,000</option>
-                  <option value="30k-50k">$30,000 – $50,000</option>
-                  <option value="over-50k">Over $50,000</option>
-                </select>
-                {errors.budget && <p className="text-red-400 text-xs mt-1">{errors.budget}</p>}
-              </div>
-            </div>
-          )}
-
-          {/* Step 3: Summary */}
-          {step === 3 && (
-            <div className="space-y-5">
-              <div>
-                <h2 className="text-xl font-bold text-white mb-1">You're all set! 🎉</h2>
-                <p className="text-muted text-sm">Here's a summary of your profile</p>
-              </div>
-
-              <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-surface rounded-xl">
-                  <span className="text-muted text-sm flex items-center gap-2"><User size={14} /> Name</span>
-                  <span className="text-white font-medium">{form.name}</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-surface rounded-xl">
-                  <span className="text-muted text-sm flex items-center gap-2"><BookOpen size={14} /> Qualification</span>
-                  <span className="text-white font-medium">{form.qualification}</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-surface rounded-xl">
-                  <span className="text-muted text-sm flex items-center gap-2"><GraduationCap size={14} /> Course</span>
-                  <span className="text-white font-medium">{form.targetCourse}</span>
-                </div>
-                <div className="flex items-start justify-between p-3 bg-surface rounded-xl">
-                  <span className="text-muted text-sm flex items-center gap-2 flex-shrink-0"><Globe size={14} /> Countries</span>
-                  <div className="flex flex-wrap gap-1 justify-end">
-                    {form.preferredCountries.map((c) => (
-                      <span key={c} className="badge bg-primary/20 text-blue-300 border border-primary/30">{c}</span>
-                    ))}
-                  </div>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-surface rounded-xl">
-                  <span className="text-muted text-sm flex items-center gap-2"><DollarSign size={14} /> Budget</span>
-                  <span className="text-white font-medium">{form.budget}</span>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Navigation Buttons */}
-          <div className="flex gap-3 mt-8">
-            {step > 1 && (
-              <button onClick={handleBack} className="btn-secondary flex items-center gap-2">
-                <ChevronLeft size={18} />
-                Back
-              </button>
-            )}
-            {step < 3 ? (
-              <button
-                id="onboarding-next"
-                onClick={handleNext}
-                className="btn-primary flex-1 flex items-center justify-center gap-2"
-              >
-                Next Step
-                <ChevronRight size={18} />
-              </button>
-            ) : (
-              <button
-                id="onboarding-submit"
-                onClick={handleSubmit}
-                className="btn-primary flex-1 flex items-center justify-center gap-2"
-              >
-                Launch My Dashboard
-                <GraduationCap size={18} />
-              </button>
-            )}
-          </div>
->>>>>>> 4c73b5a (Edit Code)
-        </div >
-      </div >
-    </PageTransition >
+      </div>
+    </PageTransition>
   );
 }
