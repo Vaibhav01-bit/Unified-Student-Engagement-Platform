@@ -5,9 +5,8 @@ import { getProgressPercentage } from './scoring';
 
 const REWARDS_KEY = 'edupath_rewards';
 
-// Get all rewards state
 export function getRewardsState() {
-  return storage.get(REWARDS_KEY, {
+  const fallback = {
     xp: 0,
     earnedBadgeIds: [],
     stats: {
@@ -20,27 +19,33 @@ export function getRewardsState() {
       timeline_viewed: 0,
       referrals: 0,
       loan_applied: 0,
+      streak: 0,
     },
-  });
+  };
+  
+  const saved = storage.get(REWARDS_KEY, null);
+  if (!saved) return fallback;
+
+  return {
+    xp: saved.xp || 0,
+    earnedBadgeIds: saved.earnedBadgeIds || [],
+    stats: { ...fallback.stats, ...(saved.stats || {}) },
+  };
 }
 
-// Save rewards state
 function saveRewardsState(state) {
   storage.set(REWARDS_KEY, state);
 }
 
-// Track an event and award XP/badges
 export function trackEvent(eventName, delta = 1) {
   const state = getRewardsState();
   const completedIds = storage.get('edupath_checklist_completed', []);
   const checklistPct = getProgressPercentage(completedIds, checklistData.length);
 
-  // Update stat
   if (state.stats[eventName] !== undefined) {
     state.stats[eventName] += delta;
   }
 
-  // Evaluate badges
   const newBadges = [];
   const statsWithChecklist = { ...state.stats, checklist_pct: checklistPct };
 
@@ -59,7 +64,6 @@ export function trackEvent(eventName, delta = 1) {
   return { newBadges, xp: state.xp };
 }
 
-// Simple condition evaluator for badge conditions like "streak >= 3"
 function evalCondition(condition, stats) {
   try {
     const [stat, op, value] = condition.split(' ');
@@ -75,7 +79,6 @@ function evalCondition(condition, stats) {
   }
 }
 
-// Get XP level info
 export function getLevelInfo(xp) {
   const levels = [
     { level: 1, name: 'Explorer', minXP: 0, maxXP: 200, color: 'text-slate-400' },
@@ -86,7 +89,8 @@ export function getLevelInfo(xp) {
   ];
 
   const current = [...levels].reverse().find((l) => xp >= l.minXP) || levels[0];
-  const next = levels[current.level] || levels[levels.length - 1];
+  const next = levels[Math.min(current.level, levels.length - 1)];
+
   const progress = next
     ? Math.round(((xp - current.minXP) / (next.maxXP - current.minXP)) * 100)
     : 100;
@@ -94,13 +98,11 @@ export function getLevelInfo(xp) {
   return { ...current, next, progress, xp };
 }
 
-// Get earned badges
 export function getEarnedBadges() {
   const state = getRewardsState();
   return badgesData.filter((b) => state.earnedBadgeIds.includes(b.id));
 }
 
-// Get all badges with earned status
 export function getAllBadgesWithStatus() {
   const state = getRewardsState();
   return badgesData.map((b) => ({
@@ -109,7 +111,6 @@ export function getAllBadgesWithStatus() {
   }));
 }
 
-// Check and award streak-based badges
 export function syncStreakBadges(streak) {
   const state = getRewardsState();
   state.stats.streak = streak;

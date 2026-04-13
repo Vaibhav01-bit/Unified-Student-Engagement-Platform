@@ -161,22 +161,20 @@ export default function Explore() {
         <button
           id="tab-chatbot"
           onClick={() => setActiveTab('chatbot')}
-          className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
-            activeTab === 'chatbot'
+          className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${activeTab === 'chatbot'
               ? 'bg-primary text-white shadow-lg shadow-primary/30'
               : 'text-muted hover:text-white'
-          }`}
+            }`}
         >
           🤖 Career Chatbot
         </button>
         <button
           id="tab-universities"
           onClick={() => setActiveTab('universities')}
-          className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
-            activeTab === 'universities'
+          className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${activeTab === 'universities'
               ? 'bg-primary text-white shadow-lg shadow-primary/30'
               : 'text-muted hover:text-white'
-          }`}
+            }`}
         >
           🏫 Universities
         </button>

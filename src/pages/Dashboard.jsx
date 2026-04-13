@@ -69,10 +69,10 @@ export default function Dashboard() {
           <GlassCard className="p-8 md:p-12 relative overflow-hidden group border-gray-200" hoverable={false}>
             {/* Ambient Background elements */}
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-teal-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 animate-pulse" />
-            
+
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   className="flex items-center gap-2 px-3 py-1 bg-gray-100 border border-gray-200 rounded-full w-fit"
@@ -104,14 +104,14 @@ export default function Dashboard() {
                   {/* Outer Ring */}
                   <svg className="w-full h-full -rotate-90">
                     <circle cx="96" cy="96" r="88" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-gray-200" />
-                    <motion.circle 
-                      cx="96" cy="96" r="88" 
-                      stroke="currentColor" strokeWidth="8" fill="transparent" 
+                    <motion.circle
+                      cx="96" cy="96" r="88"
+                      stroke="currentColor" strokeWidth="8" fill="transparent"
                       strokeDasharray={552.9}
                       initial={{ strokeDashoffset: 552.9 }}
                       animate={{ strokeDashoffset: 552.9 - (552.9 * progress / 100) }}
                       transition={{ duration: 1.5, ease: "easeOut" }}
-                      className="text-teal-500" 
+                      className="text-teal-500"
                       strokeLinecap="round"
                     />
                   </svg>
@@ -132,7 +132,7 @@ export default function Dashboard() {
               <Target size={14} className="text-teal-500" /> Key Metrics
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { icon: TrendingUp, value: `${progress}%`, label: 'Progress', color: 'text-blue-500', bg: 'bg-blue-50' },
@@ -157,17 +157,17 @@ export default function Dashboard() {
 
         {/* Personalized Actions */}
         {suggestions.length > 0 && (
-           <section className="space-y-6">
-              <h2 className="text-xs font-black uppercase tracking-[0.3em] text-gray-500 flex items-center gap-2">
+          <section className="space-y-6">
+            <h2 className="text-xs font-black uppercase tracking-[0.3em] text-gray-500 flex items-center gap-2">
               <Sparkles size={14} className="text-teal-500" /> AI Insights For You
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {suggestions.map((s, idx) => (
                 <Link key={idx} to={s.path}>
                   <GlassCard className="p-6 group relative overflow-hidden h-full">
-                    <div className={cn("absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-5 transition-opacity duration-500", 
+                    <div className={cn("absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-5 transition-opacity duration-500",
                       s.color === 'blue' ? 'from-blue-500' : 'from-teal-500')} />
-                    
+
                     <div className="flex gap-4 items-start relative z-10">
                       <div className="text-3xl filter saturate-[1.5] group-hover:scale-110 transition-transform duration-500">{s.icon}</div>
                       <div className="flex-1 space-y-2">
@@ -206,21 +206,45 @@ export default function Dashboard() {
           </div>
         </section>
 
-        {/* Engagement Footers */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-4">
-          <StreakCounter streak={streak} />
-          <DailyTip />
-        </section>
+<<<<<<< HEAD
+  {/* Engagement Footers */ }
+  <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-4">
+    <StreakCounter streak={streak} />
+    <DailyTip />
+  </section>
 
-        {showNudge && (
-          <SmartNudge
-            message="System Alert: Your document pipeline is currently idle. Several critical nodes require your intervention."
-            cta="Resolve Progress"
-            ctaPath="/progress"
-            onDismiss={() => setShowNudge(false)}
-          />
-        )}
-      </div>
-    </PageTransition>
+  {
+    showNudge && (
+      <SmartNudge
+        message="System Alert: Your document pipeline is currently idle. Several critical nodes require your intervention."
+        cta="Resolve Progress"
+        ctaPath="/progress"
+        onDismiss={() => setShowNudge(false)}
+      />
+    )
+  }
+=======
+      {/* Navigation Cards */}
+      <div>
+        <h2 className="text-lg font-bold text-white mb-4">All Features</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          {navCards.map(({ path, title, description, gradient, emoji }) => (
+            <Link key={path} to={path} id={`nav-card-${title.toLowerCase().replace(/\s/g, '-')}`}
+              className="card-hover group relative overflow-hidden">
+              <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+              <div className="relative">
+                <div className="text-2xl mb-2">{emoji}</div>
+                <h3 className="text-sm font-bold text-white group-hover:text-blue-300 transition-colors mb-1">{title}</h3>
+                <p className="text-xs text-muted">{description}</p>
+                <div className="mt-3 flex items-center gap-1 text-primary text-xs font-medium group-hover:gap-2 transition-all">
+                  Explore <ArrowRight size={12} />
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+>>>>>>> 4c73b5a (Edit Code)
+      </div >
+    </PageTransition >
   );
 }
