@@ -103,11 +103,11 @@ export default function Onboarding() {
   return (
     <PageTransition transitionKey="onboarding">
       <div className="min-h-screen relative flex items-center justify-center p-4 overflow-hidden">
-        
+
         {/* Animated Background Decoration */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
           <motion.div
-            animate={{ 
+            animate={{
               scale: [1, 1.2, 1],
               rotate: [0, 90, 0],
               opacity: [0.3, 0.5, 0.3]
@@ -116,7 +116,7 @@ export default function Onboarding() {
             className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-teal-100 rounded-full blur-[120px]"
           />
           <motion.div
-            animate={{ 
+            animate={{
               scale: [1, 1.3, 1],
               rotate: [0, -45, 0],
               opacity: [0.2, 0.4, 0.2]
@@ -181,211 +181,390 @@ export default function Onboarding() {
             ))}
           </div>
 
-          {/* Form Content */}
-          <GlassCard className="p-0 overflow-hidden border-gray-200 shadow-3xl min-h-[420px] flex flex-col" hoverable={false}>
-            <div className="p-8 flex-1">
-              <AnimatePresence mode="wait" custom={direction}>
-                <motion.div
-                  key={step}
-                  custom={direction}
-                  variants={stepVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ 
-                    x: { type: "spring", stiffness: 300, damping: 30 },
-                    opacity: { duration: 0.2 }
-                  }}
-                  className="w-full h-full"
-                >
-                  {step === 1 && (
-                    <div className="space-y-6">
-                      <div className="space-y-1">
-                        <h2 className="text-2xl font-black text-gray-900">The Identity</h2>
-                        <p className="text-gray-500 text-sm font-medium">Let's start with the basics.</p>
-                      </div>
+          {/* Form Content */ }
+              < GlassCard className = "p-0 overflow-hidden border-gray-200 shadow-3xl min-h-[420px] flex flex-col" hoverable = { false} >
+              <div className="p-8 flex-1">
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={step}
+                    custom={direction}
+                    variants={stepVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{
+                      x: { type: "spring", stiffness: 300, damping: 30 },
+                      opacity: { duration: 0.2 }
+                    }}
+                    className="w-full h-full"
+                  >
+                    {step === 1 && (
+                      <div className="space-y-6">
+                        <div className="space-y-1">
+                          <h2 className="text-2xl font-black text-gray-900">The Identity</h2>
+                          <p className="text-gray-500 text-sm font-medium">Let's start with the basics.</p>
+                        </div>
 
-                      <div className="space-y-2">
-                        <label className="text-xs font-black uppercase tracking-widest text-gray-500">Full Name</label>
-                        <input
-                          id="onboarding-name"
-                          type="text"
-                          className="w-full glass bg-gray-100 border border-gray-200 rounded-2xl px-5 py-4 text-gray-900 placeholder-gray-400 outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-100 transition-all font-medium"
-                          placeholder="e.g. Alexander Knight"
-                          value={form.name}
-                          onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        />
-                        {errors.name && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-500 text-xs font-bold tracking-tight">{errors.name}</motion.p>}
-                      </div>
+                        <div className="space-y-2">
+                          <label className="text-xs font-black uppercase tracking-widest text-gray-500">Full Name</label>
+                          <input
+                            id="onboarding-name"
+                            type="text"
+                            className="w-full glass bg-gray-100 border border-gray-200 rounded-2xl px-5 py-4 text-gray-900 placeholder-gray-400 outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-100 transition-all font-medium"
+                            placeholder="e.g. Alexander Knight"
+                            value={form.name}
+                            onChange={(e) => setForm({ ...form, name: e.target.value })}
+                          />
+                          {errors.name && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-500 text-xs font-bold tracking-tight">{errors.name}</motion.p>}
+                        </div>
 
-                      <div className="space-y-2">
-                        <label className="text-xs font-black uppercase tracking-widest text-gray-500">Aspirant Qualification</label>
-                        <select
-                          id="onboarding-qualification"
-                          className="w-full glass bg-gray-100 border border-gray-200 rounded-2xl px-5 py-4 text-gray-900 outline-none focus:border-teal-500 transition-all font-medium appearance-none"
-                          value={form.qualification}
-                          onChange={(e) => setForm({ ...form, qualification: e.target.value })}
-                        >
-                          <option value="" className="bg-gray-100">Select level...</option>
-                          {qualifications.map((q) => (
-                            <option key={q} value={q} className="bg-gray-100">{q}</option>
-                          ))}
-                        </select>
-                        {errors.qualification && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-500 text-xs font-bold tracking-tight">{errors.qualification}</motion.p>}
+                        <div className="space-y-2">
+                          <label className="text-xs font-black uppercase tracking-widest text-gray-500">Aspirant Qualification</label>
+                          <select
+                            id="onboarding-qualification"
+                            className="w-full glass bg-gray-100 border border-gray-200 rounded-2xl px-5 py-4 text-gray-900 outline-none focus:border-teal-500 transition-all font-medium appearance-none"
+                            value={form.qualification}
+                            onChange={(e) => setForm({ ...form, qualification: e.target.value })}
+                          >
+                            <option value="" className="bg-gray-100">Select level...</option>
+                            {qualifications.map((q) => (
+                              <option key={q} value={q} className="bg-gray-100">{q}</option>
+                            ))}
+                          </select>
+                          {errors.qualification && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-500 text-xs font-bold tracking-tight">{errors.qualification}</motion.p>}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
 
-                  {step === 2 && (
-                    <div className="space-y-6">
-                      <div className="space-y-1">
-                        <h2 className="text-2xl font-black text-gray-900">The Aspiration</h2>
-                        <p className="text-gray-500 text-sm font-medium">Where is your journey taking you?</p>
-                      </div>
+                    {step === 2 && (
+                      <div className="space-y-6">
+                        <div className="space-y-1">
+                          <h2 className="text-2xl font-black text-gray-900">The Aspiration</h2>
+                          <p className="text-gray-500 text-sm font-medium">Where is your journey taking you?</p>
+                        </div>
 
-                      <div className="space-y-2">
-                        <label className="text-xs font-black uppercase tracking-widest text-gray-500">Discipline of Interest</label>
-                        <select
-                          id="onboarding-course"
-                          className="w-full glass bg-gray-100 border border-gray-200 rounded-2xl px-5 py-4 text-gray-900 outline-none focus:border-teal-500 transition-all font-medium appearance-none"
-                          value={form.targetCourse}
-                          onChange={(e) => setForm({ ...form, targetCourse: e.target.value })}
-                        >
-                          <option value="" className="bg-gray-100">Select domain...</option>
-                          {courses.map((c) => (
-                            <option key={c} value={c} className="bg-gray-100">{c}</option>
-                          ))}
-                        </select>
-                        {errors.targetCourse && <p className="text-red-500 text-xs font-bold tracking-tight">{errors.targetCourse}</p>}
-                      </div>
+                        <div className="space-y-2">
+                          <label className="text-xs font-black uppercase tracking-widest text-gray-500">Discipline of Interest</label>
+                          <select
+                            id="onboarding-course"
+                            className="w-full glass bg-gray-100 border border-gray-200 rounded-2xl px-5 py-4 text-gray-900 outline-none focus:border-teal-500 transition-all font-medium appearance-none"
+                            value={form.targetCourse}
+                            onChange={(e) => setForm({ ...form, targetCourse: e.target.value })}
+                          >
+                            <option value="" className="bg-gray-100">Select domain...</option>
+                            {courses.map((c) => (
+                              <option key={c} value={c} className="bg-gray-100">{c}</option>
+                            ))}
+                          </select>
+                          {errors.targetCourse && <p className="text-red-500 text-xs font-bold tracking-tight">{errors.targetCourse}</p>}
+                        </div>
 
-                      <div className="space-y-3">
-                        <label className="text-xs font-black uppercase tracking-widest text-gray-500">Destination Nodes</label>
-                        <div className="grid grid-cols-2 gap-3">
-                          {countries.map((country) => {
-                            const selected = form.preferredCountries.includes(country);
-                            return (
+                        <div className="space-y-3">
+                          <label className="text-xs font-black uppercase tracking-widest text-gray-500">Destination Nodes</label>
+                          <div className="grid grid-cols-2 gap-3">
+                            {countries.map((country) => {
+                              const selected = form.preferredCountries.includes(country);
+                              return (
+                                <motion.button
+                                  whileHover={{ scale: 1.02 }}
+                                  whileTap={{ scale: 0.98 }}
+                                  key={country}
+                                  type="button"
+                                  onClick={() => toggleCountry(country)}
+                                  className={cn(
+                                    "px-4 py-3 rounded-xl text-xs font-bold text-left transition-all duration-300 border",
+                                    selected
+                                      ? "bg-teal-100 border-teal-500 text-gray-900 shadow-lg shadow-teal-100"
+                                      : "bg-gray-100 border-gray-100 text-gray-500 hover:border-teal-300 hover:text-gray-900"
+                                  )}
+                                >
+                                  {selected && <Check size={12} className="inline mr-2" />}
+                                  {country}
+                                </motion.button>
+                              );
+                            })}
+                          </div>
+                          {errors.preferredCountries && <p className="text-red-500 text-xs font-bold tracking-tight">{errors.preferredCountries}</p>}
+                        </div>
+
+                        <div className="space-y-2">
+                          <label className="text-xs font-black uppercase tracking-widest text-gray-500">Fuel Reservoir (Annual Budget)</label>
+                          <div className="grid grid-cols-2 gap-3">
+                            {[
+                              { label: '< $15k', val: 'under-15k' },
+                              { label: '$15k-30k', val: '15k-30k' },
+                              { label: '$30k-50k', val: '30k-50k' },
+                              { label: '> $50k', val: 'over-50k' }
+                            ].map(b => (
                               <motion.button
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                key={country}
+                                key={b.val}
                                 type="button"
-                                onClick={() => toggleCountry(country)}
+                                onClick={() => setForm({ ...form, budget: b.val })}
                                 className={cn(
-                                  "px-4 py-3 rounded-xl text-xs font-bold text-left transition-all duration-300 border",
-                                  selected
-                                    ? "bg-teal-100 border-teal-500 text-gray-900 shadow-lg shadow-teal-100"
-                                    : "bg-gray-100 border-gray-100 text-gray-500 hover:border-teal-300 hover:text-gray-900"
+                                  "px-4 py-3 rounded-xl text-xs font-bold text-center transition-all duration-300 border",
+                                  form.budget === b.val
+                                    ? "bg-blue-100 border-blue-500 text-gray-900 shadow-lg shadow-blue-100"
+                                    : "bg-gray-100 border-gray-100 text-gray-500 hover:border-blue-300 hover:text-gray-900"
                                 )}
                               >
-                                {selected && <Check size={12} className="inline mr-2" />}
-                                {country}
+                                {b.label}
                               </motion.button>
-                            );
-                          })}
+                            ))}
+                          </div>
+                          {errors.budget && <p className="text-red-500 text-xs font-bold tracking-tight">{errors.budget}</p>}
                         </div>
-                        {errors.preferredCountries && <p className="text-red-500 text-xs font-bold tracking-tight">{errors.preferredCountries}</p>}
                       </div>
+                    )}
 
-                      <div className="space-y-2">
-                        <label className="text-xs font-black uppercase tracking-widest text-gray-500">Fuel Reservoir (Annual Budget)</label>
-                        <div className="grid grid-cols-2 gap-3">
+                    {step === 3 && (
+                      <div className="space-y-6">
+                        <div className="space-y-1">
+                          <h2 className="text-2xl font-black text-gray-900">The Activation 🎉</h2>
+                          <p className="text-gray-500 text-sm font-medium">Ready to initialize your education OS?</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-3">
                           {[
-                            { label: '< $15k', val: 'under-15k' },
-                            { label: '$15k-30k', val: '15k-30k' },
-                            { label: '$30k-50k', val: '30k-50k' },
-                            { label: '> $50k', val: 'over-50k' }
-                          ].map(b => (
-                            <motion.button
-                              whileHover={{ scale: 1.02 }}
-                              whileTap={{ scale: 0.98 }}
-                              key={b.val}
-                              type="button"
-                              onClick={() => setForm({...form, budget: b.val})}
-                              className={cn(
-                                "px-4 py-3 rounded-xl text-xs font-bold text-center transition-all duration-300 border",
-                                form.budget === b.val
-                                  ? "bg-blue-100 border-blue-500 text-gray-900 shadow-lg shadow-blue-100"
-                                  : "bg-gray-100 border-gray-100 text-gray-500 hover:border-blue-300 hover:text-gray-900"
-                              )}
+                            { icon: User, label: 'Identity', val: form.name },
+                            { icon: BookOpen, label: 'Qualification', val: form.qualification },
+                            { icon: GraduationCap, label: 'Discipline', val: form.targetCourse },
+                            { icon: Globe, label: 'Nodes', val: form.preferredCountries.join(', ') },
+                            { icon: DollarSign, label: 'Fuel', val: form.budget },
+                          ].map((item, idx) => (
+                            <motion.div
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: idx * 0.1 }}
+                              key={idx}
+                              className="flex items-center justify-between p-4 bg-gray-100 border border-gray-100 rounded-2xl"
                             >
-                              {b.label}
-                            </motion.button>
+                              <div className="flex items-center gap-3">
+                                <div className="p-2 rounded-lg bg-gray-100 text-teal-500">
+                                  <item.icon size={16} />
+                                </div>
+                                <span className="text-[10px] font-black uppercase tracking-widest text-gray-500">{item.label}</span>
+                              </div>
+                              <span className="text-sm font-bold text-gray-900 truncate max-w-[180px]">{item.val}</span>
+                            </motion.div>
                           ))}
                         </div>
-                        {errors.budget && <p className="text-red-500 text-xs font-bold tracking-tight">{errors.budget}</p>}
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
 
-                  {step === 3 && (
-                    <div className="space-y-6">
-                      <div className="space-y-1">
-                        <h2 className="text-2xl font-black text-gray-900">The Activation 🎉</h2>
-                        <p className="text-gray-500 text-sm font-medium">Ready to initialize your education OS?</p>
-                      </div>
-
-                      <div className="grid grid-cols-1 gap-3">
-                        {[
-                          { icon: User, label: 'Identity', val: form.name },
-                          { icon: BookOpen, label: 'Qualification', val: form.qualification },
-                          { icon: GraduationCap, label: 'Discipline', val: form.targetCourse },
-                          { icon: Globe, label: 'Nodes', val: form.preferredCountries.join(', ') },
-                          { icon: DollarSign, label: 'Fuel', val: form.budget },
-                        ].map((item, idx) => (
-                          <motion.div 
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: idx * 0.1 }}
-                            key={idx} 
-                            className="flex items-center justify-between p-4 bg-gray-100 border border-gray-100 rounded-2xl"
-                          >
-                            <div className="flex items-center gap-3">
-                              <div className="p-2 rounded-lg bg-gray-100 text-teal-500">
-                                <item.icon size={16} />
-                              </div>
-                              <span className="text-[10px] font-black uppercase tracking-widest text-gray-500">{item.label}</span>
-                            </div>
-                            <span className="text-sm font-bold text-gray-900 truncate max-w-[180px]">{item.val}</span>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* Footer Navigation */}
-            <div className="p-6 bg-gray-100 border-t border-gray-100 flex gap-4">
-              {step > 1 && (
+            {/* Footer Navigation */ }
+              < div className = "p-6 bg-gray-100 border-t border-gray-100 flex gap-4" >
+              { step > 1 && (
                 <Button variant="secondary" onClick={handleBack} className="flex-1">
                   <ChevronLeft size={18} />
                 </Button>
               )}
-              {step < 3 ? (
-                <Button
-                  id="onboarding-next"
-                  onClick={handleNext}
-                  className="flex-[3] flex items-center justify-center gap-2"
-                >
-                  Continue Journey
-                  <ChevronRight size={18} />
-                </Button>
-              ) : (
-                <Button
-                  id="onboarding-submit"
-                  onClick={handleSubmit}
-                  className="flex-[3] flex items-center justify-center gap-3"
-                >
-                  Launch OS
-                  <GraduationCap size={18} />
-                </Button>
-              )}
-            </div>
-          </GlassCard>
+            {step < 3 ? (
+              <Button
+                id="onboarding-next"
+                onClick={handleNext}
+                className="flex-[3] flex items-center justify-center gap-2"
+              >
+                Continue Journey
+                <ChevronRight size={18} />
+              </Button>
+            ) : (
+              <Button
+                id="onboarding-submit"
+                onClick={handleSubmit}
+                className="flex-[3] flex items-center justify-center gap-3"
+              >
+                Launch OS
+                <GraduationCap size={18} />
+              </Button>
+            )}
+          </div>
+<<<<<<< HEAD
+          </GlassCard >
+=======
+          ))}
         </div>
-      </div>
-    </PageTransition>
+
+        {/* Form Card */}
+        <div className="card animate-slide-up">
+          {/* Step 1: Personal Info */}
+          {step === 1 && (
+            <div className="space-y-5">
+              <div>
+                <h2 className="text-xl font-bold text-white mb-1">Tell us about yourself</h2>
+                <p className="text-muted text-sm">We'll personalize your experience</p>
+              </div>
+
+              <div>
+                <label className="label">Full Name *</label>
+                <input
+                  id="onboarding-name"
+                  type="text"
+                  className="input-field"
+                  placeholder="e.g. Priya Sharma"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                />
+                {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
+              </div>
+
+              <div>
+                <label className="label">Current Qualification *</label>
+                <select
+                  id="onboarding-qualification"
+                  className="input-field"
+                  value={form.qualification}
+                  onChange={(e) => setForm({ ...form, qualification: e.target.value })}
+                >
+                  <option value="">Select qualification</option>
+                  {qualifications.map((q) => (
+                    <option key={q} value={q}>{q}</option>
+                  ))}
+                </select>
+                {errors.qualification && <p className="text-red-400 text-xs mt-1">{errors.qualification}</p>}
+              </div>
+            </div>
+          )}
+
+          {/* Step 2: Study Goals */}
+          {step === 2 && (
+            <div className="space-y-5">
+              <div>
+                <h2 className="text-xl font-bold text-white mb-1">Your Study Goals</h2>
+                <p className="text-muted text-sm">Help us find the best universities for you</p>
+              </div>
+
+              <div>
+                <label className="label">Target Course *</label>
+                <select
+                  id="onboarding-course"
+                  className="input-field"
+                  value={form.targetCourse}
+                  onChange={(e) => setForm({ ...form, targetCourse: e.target.value })}
+                >
+                  <option value="">Select a course</option>
+                  {courses.map((c) => (
+                    <option key={c} value={c}>{c}</option>
+                  ))}
+                </select>
+                {errors.targetCourse && <p className="text-red-400 text-xs mt-1">{errors.targetCourse}</p>}
+              </div>
+
+              <div>
+                <label className="label">Preferred Countries * <span className="text-muted font-normal">(select all that apply)</span></label>
+                <div className="grid grid-cols-2 gap-2">
+                  {countries.map((country) => {
+                    const selected = form.preferredCountries.includes(country);
+                    return (
+                      <button
+                        key={country}
+                        type="button"
+                        id={`country-${country.toLowerCase().replace(' ', '-')}`}
+                        onClick={() => toggleCountry(country)}
+                        className={`px-3 py-2 rounded-xl text-sm font-medium text-left transition-all duration-200 border ${selected
+                            ? 'bg-primary/20 border-primary/50 text-white'
+                            : 'bg-surface border-surface-border text-muted hover:border-primary/30 hover:text-white'
+                          }`}
+                      >
+                        {selected ? '✓ ' : ''}{country}
+                      </button>
+                    );
+                  })}
+                </div>
+                {errors.preferredCountries && <p className="text-red-400 text-xs mt-1">{errors.preferredCountries}</p>}
+              </div>
+
+              <div>
+                <label className="label">Annual Budget (USD) *</label>
+                <select
+                  id="onboarding-budget"
+                  className="input-field"
+                  value={form.budget}
+                  onChange={(e) => setForm({ ...form, budget: e.target.value })}
+                >
+                  <option value="">Select budget range</option>
+                  <option value="under-15k">Under $15,000</option>
+                  <option value="15k-30k">$15,000 – $30,000</option>
+                  <option value="30k-50k">$30,000 – $50,000</option>
+                  <option value="over-50k">Over $50,000</option>
+                </select>
+                {errors.budget && <p className="text-red-400 text-xs mt-1">{errors.budget}</p>}
+              </div>
+            </div>
+          )}
+
+          {/* Step 3: Summary */}
+          {step === 3 && (
+            <div className="space-y-5">
+              <div>
+                <h2 className="text-xl font-bold text-white mb-1">You're all set! 🎉</h2>
+                <p className="text-muted text-sm">Here's a summary of your profile</p>
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex items-center justify-between p-3 bg-surface rounded-xl">
+                  <span className="text-muted text-sm flex items-center gap-2"><User size={14} /> Name</span>
+                  <span className="text-white font-medium">{form.name}</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-surface rounded-xl">
+                  <span className="text-muted text-sm flex items-center gap-2"><BookOpen size={14} /> Qualification</span>
+                  <span className="text-white font-medium">{form.qualification}</span>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-surface rounded-xl">
+                  <span className="text-muted text-sm flex items-center gap-2"><GraduationCap size={14} /> Course</span>
+                  <span className="text-white font-medium">{form.targetCourse}</span>
+                </div>
+                <div className="flex items-start justify-between p-3 bg-surface rounded-xl">
+                  <span className="text-muted text-sm flex items-center gap-2 flex-shrink-0"><Globe size={14} /> Countries</span>
+                  <div className="flex flex-wrap gap-1 justify-end">
+                    {form.preferredCountries.map((c) => (
+                      <span key={c} className="badge bg-primary/20 text-blue-300 border border-primary/30">{c}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex items-center justify-between p-3 bg-surface rounded-xl">
+                  <span className="text-muted text-sm flex items-center gap-2"><DollarSign size={14} /> Budget</span>
+                  <span className="text-white font-medium">{form.budget}</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Navigation Buttons */}
+          <div className="flex gap-3 mt-8">
+            {step > 1 && (
+              <button onClick={handleBack} className="btn-secondary flex items-center gap-2">
+                <ChevronLeft size={18} />
+                Back
+              </button>
+            )}
+            {step < 3 ? (
+              <button
+                id="onboarding-next"
+                onClick={handleNext}
+                className="btn-primary flex-1 flex items-center justify-center gap-2"
+              >
+                Next Step
+                <ChevronRight size={18} />
+              </button>
+            ) : (
+              <button
+                id="onboarding-submit"
+                onClick={handleSubmit}
+                className="btn-primary flex-1 flex items-center justify-center gap-2"
+              >
+                Launch My Dashboard
+                <GraduationCap size={18} />
+              </button>
+            )}
+          </div>
+>>>>>>> 4c73b5a (Edit Code)
+        </div >
+      </div >
+    </PageTransition >
   );
 }

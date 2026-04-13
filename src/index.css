@@ -66,7 +66,7 @@
   }
 
   .premium-card-hover {
-    @apply premium-card hover:scale-[1.02] hover:-translate-y-1 hover:border-teal-500/50 hover:shadow-[0_0_20px_rgba(20,184,166,0.3)];
+    @apply premium-card hover:scale-[1.02] hover:-translate-y-1 hover:border-teal-500/50 hover:shadow-[0_0_20px_rgba(20, 184, 166, 0.3)];
   }
 
   .btn-premium {
@@ -93,7 +93,7 @@
   }
 
   .nav-link-active {
-    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-gray-900 bg-teal-500/10 border border-teal-500/30 font-medium shadow-[0_0_15px_rgba(20,184,166,0.1)];
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-gray-900 bg-teal-500/10 border border-teal-500/30 font-medium shadow-[0_0_15px_rgba(20, 184, 166, 0.1)];
   }
 }
 
@@ -111,17 +111,133 @@
   }
 }
 
-@keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+<<<<<<< HEAD @keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
+
+=======
+
+/* Custom animations */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatUp {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes progressFill {
+  from {
+    stroke-dashoffset: 440;
+  }
+
+  to {
+    stroke-dashoffset: var(--target-offset);
+  }
+}
+
+.animate-float {
+  animation: floatUp 4s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+.shimmer-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+/* Progress bar animation */
+.progress-bar-fill {
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Chat message animations */
+.chat-message-bot {
+  animation: slideIn 0.3s ease-out;
+}
+
+.chat-message-user {
+  animation: slideUp 0.2s ease-out;
+}
+
+/* Checklist item hover */
+.checklist-item:hover {
+  @apply bg-surface/50;
+}
+
+/* Tooltip */
+.tooltip {
+  @apply absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-surface-card border border-surface-border text-xs rounded-lg whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-200;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply opacity-100;
+}
+
+>>>>>>>4c73b5a (Edit Code)
